@@ -1,0 +1,129 @@
+.header_section{
+width           : calc(100% - 20px);
+height          : 5rem;
+background-color: #282932;
+display         : flex;
+align-items     : center;
+padding         : 10px;
+padding-top     : 0;
+padding-left    : 0;
+padding-right   : 0;
+/* border-bottom: 1px dashed rgba(255, 255, 255, 0.186); */
+}
+.header_container{
+        padding: 0px 50px 15px 50px;
+    background: #282932;
+}
+.hamburger{
+    width: 1.9rem;
+    margin-right: 88px;
+}
+.logo{
+    width: 8rem;
+    margin-right: 13rem;
+}
+nav ul{
+        display: flex;
+        list-style: none;
+        padding: 0;
+         font-size: 11px;
+        font-weight: bold;
+         margin-right: 9rem;}
+nav ul li{
+    margin-right: 46px; 
+   
+}
+nav ul li.active Link{
+    color: #F8C628;
+}
+nav ul li .NavLink{
+    color: #ffffff;
+    text-decoration: none;
+    transition: .5s ease-in-out;
+}
+nav ul li .NavLink:hover{
+    color: #F8C628;
+}
+.phone i{
+    margin-right: 28px;
+    color: #ffffff;
+    transition:.5s ease-in-out;
+    
+}
+.phone span{
+    color       : #F8C628;
+    margin-right: 57px;
+    font-size   : 13px;
+    font-weight : 600;
+}
+.other-nav{
+    display: flex;
+    transform: translateY(0);
+    transition: 1s ease-in-out;
+}
+.user i{
+    color: #ffffff;
+    margin-right:48px;
+        font-size: 21px;
+                    transition:.5s ease-in-out;
+}
+.cart_count{
+    width: 22px;
+    height:22px;
+    background-color: #F8C628;
+    border-radius: 50%;
+        transition:.5s ease-in-out;
+}
+.cart{
+    display: flex;
+    
+}
+.cart i {
+        color: #ffffff;
+        margin-right: 17px;
+            font-size: 21px;
+            transition:.5s ease-in-out;
+}
+.cart_count{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} .cart_count{
+    color      : #282932;
+    font-size  : 12px;
+    font-weight: 500;
+    margin-right: 48px;
+}
+.search i{
+    color: #ffffff;
+    transition:.5s ease-in-out;
+}
+.search i:hover,
+.phone i:hover,
+.cart i:hover,
+.user i:hover{
+    color: #F8C628;
+}
+.cart i:hover ~ .cart_count{
+background-color: #ffffff;
+}
+.search_input{
+    width: 25rem;
+    padding: 9px;
+    border-radius: 28px;
+    transition: 1s ease-in-out;
+    transform: translateX(0);
+    border: none;
+    box-shadow: 2px 2px 2px #ffffff;
+}
+.search_none{
+    width: 0;
+    padding: 0;
+    transform: translateX(50rem);
+}
+.display_none{
+display: none;
+}
+.anim{
+    transform: translateY(-5rem);
+}
