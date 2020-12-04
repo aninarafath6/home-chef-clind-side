@@ -28,16 +28,16 @@ const Header = () => {
           <nav>
             <ul>
               <li>
-                <Link className="NavLink">Home</Link>
+                <Link to='/' className="NavLink">Home</Link>
               </li>
               <li>
-                <Link className="NavLink">About us</Link>
+                <Link to='/' className="NavLink">About us</Link>
               </li>
               <li>
-                <Link className="NavLink">Our Shoppes</Link>
+                <Link to='/' className="NavLink">Our Shoppes</Link>
               </li>
               <li>
-                <Link className="NavLink">Contact us</Link>
+                <Link to='/' className="NavLink">Contact us</Link>
               </li>
             </ul>
           </nav>
@@ -48,7 +48,9 @@ const Header = () => {
               <span className="phone-no">017-185-1195</span>
             </div>
             <div className="user">
-              <i class="fas fa-user"></i>
+            <Link to="/login">
+                <i class="fas fa-user"></i>
+            </Link>
             </div>
             <div className="cart">
               <i class="fas fa-shopping-basket"></i>

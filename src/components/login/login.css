@@ -1,0 +1,151 @@
+* {
+    margin    : 0;
+    padding   : 0;
+    box-sizing: border-box;
+}
+
+.ovarly {
+    background:linear-gradient(rgb(40 41 50), rgb(40 41 50 / 85%));
+    width     : 100%;
+    height    : 100%;
+}
+
+.login_section {
+    width              : 100%;
+    height             : 100vh;
+    background         : url("./assets/hamburger-494706.jpg");
+    background-position: center;
+    background-repeat  : no-repeat;
+    background-size    : cover;
+    z-index            : 5000;
+    position           : fixed;
+}
+
+.login_section .logo {
+    padding-left: 15px;
+    padding-top : 15px;
+}
+
+.login_section .login_container {
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+}
+
+.login_section .login_container .login {
+    width          : 23rem;
+    height         : 26rem;
+    background     : #ffffff;
+    border-radius  : 15px;
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    flex-direction : column;
+    box-shadow     : 5px 6px 4px -2px #00000073;
+
+}
+
+.login_input {
+    width  : 97%;
+    padding: 23px;
+}
+
+.login_input input {
+    width        : 100%;
+    padding      : 15px;
+    background   : #e8e8e8a6;
+    border       : none;
+    outline      : none;
+    border-radius: 9px;
+}
+
+.login_btn_div {
+    width          : 100%;
+    padding        : 23px;
+    display        : flex;
+    justify-content: center;
+}
+
+.login_btn_div button {
+    width        : 50%;
+    padding      : 15px;
+    background   : #ffffff;
+    border       : none;
+    outline      : none;
+    border-radius: 15px;
+    color        : #f8c828d2;
+    font-weight  : bold;
+    cursor       : pointer;
+    transition   : 0.3s ease-in-out;
+    border: 1px solid #f8c628;
+}
+
+.login_btn_div button:hover {
+    background   : #f8c828d2;
+    border-radius: 19px;
+    color: #ffffff;
+}
+
+.login_label_div {
+    width          : 100%;
+    display        : flex;
+    justify-content: center;
+}
+
+.login_label {
+    font-size: 40px;
+    color    : #f8c628;
+}
+
+.err_label_div .err_label {
+    color     : #878787;
+    visibility: hidden;
+    text-align: center;
+}
+
+.err_label_div .visble_err_label {
+    color     : #878787;
+    visibility: visible;
+}
+
+.from {
+    width: 100%;
+}
+.login_google{
+    width: 100%;
+    border-radius: 15px;
+
+}
+.login_google button{
+        border-radius: 15px;
+}
+
+@media (max-width: 384px) {
+    .login_section .login_container .login {
+        width : 20rem;
+        height: 23rem;
+    }
+}
+
+@media (max-width: 331px) {
+    .login_section .login_container .login {
+        width : 18rem;
+        height: 21rem;
+    }
+}
+
+@media (max-width: 280px) {
+    .login_section .login_container .login {
+        width : 15rem;
+        height: 18rem;
+    }
+
+    .login_input {
+        padding: 6px;
+    }
+
+    .login_label {
+        font-size     : 32px;
+        padding-bottom: 12px;
+    }
+}

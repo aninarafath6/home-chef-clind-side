@@ -5,8 +5,10 @@ import img_2 from './assets/item_01-800x800.jpg'
 import img_3 from './assets/item_03-800x800 (1).jpg'
 import img_4 from './assets/item_04-800x800.jpg'
 export default function Popular_food() {
+
     return (
       <>
+     
         <div className="popular_food_section">
           <div className="pf_label">
             <h3>Popular Foods</h3>
@@ -148,9 +150,7 @@ export default function Popular_food() {
         </div>
         <div className="ads_back">
           <div className="ads">
-            <h1>
-              Express  Home Delivery
-            </h1>
+            <h1>Express Home Delivery</h1>
             <p></p>
           </div>
         </div>
