@@ -56,3 +56,21 @@
 [1204/155415.423:ERROR:crash_report_database_win.cc(455)] unexpected header
 [1204/160915.448:ERROR:crash_report_database_win.cc(455)] unexpected header
 [1204/193305.629:ERROR:crash_report_database_win.cc(455)] unexpected header
+[1205/122601.263:ERROR:crash_report_database_win.cc(455)] unexpected header
+[1205/123602.273:ERROR:crash_report_database_win.cc(455)] unexpected header
+[1205/123602.996:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1205/123602.998:ERROR:crash_report_database_win.cc(455)] unexpected header
+[1205/123602.998:ERROR:crash_report_database_win.cc(455)] unexpected header
+[1205/124033.932:ERROR:crash_report_database_win.cc(455)] unexpected header
+[1205/140924.250:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1206/152041.102:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1207/112704.110:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1208/111236.201:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1208/134255.481:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1208/134416.965:ERROR:process_reader_win.cc(123)] NtOpenThread: {Access Denied} A process has requested access to an object, but has not been granted those access rights. (0xc0000022)
+[1208/134416.995:ERROR:exception_snapshot_win.cc(99)] thread ID 7508 not found in process
+[1208/225436.598:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1209/105320.131:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1210/112049.310:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1210/161440.155:ERROR:process_reader_win.cc(123)] NtOpenThread: {Access Denied} A process has requested access to an object, but has not been granted those access rights. (0xc0000022)
+[1210/161440.393:ERROR:exception_snapshot_win.cc(99)] thread ID 1268 not found in process

@@ -1,0 +1,223 @@
+.add_vendor_container {
+  width: 100%;
+  height: calc(100vh - 5rem);
+  background: url("assets/add_vendor_backround.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 99;
+  position: fixed;
+}
+.add_vendor_ovarly {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(#282932, #282932d5);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.add_vendor_section {
+  width: 24rem;
+  height: 28rem;
+  background: #ffffff;
+  border-radius: 18px;
+  display: flex;
+  justify-content: center;
+}
+.add_vendor_header_label {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+.add_vendor_header_label h3 {
+  font-size: 28px;
+  font-weight: bold;
+  border-bottom: 3px solid #ffb400;
+  color: #282932;
+  transition: .5s ease-in-out;
+  padding: 8px;
+}
+.vender_input_label {
+  background-color: #ffffff;
+  padding: 2px;
+  position: absolute;
+  top: 0.5rem;
+  margin-left: 5px;
+  transition: 0.5s ease-in-out;
+  padding-top: 0;
+  padding-bottom: 0;
+  font-size: 13px;
+  font-family: inherit;
+  color: #282932b3;
+}
+.vendor_input input:focus ~ .vender_input_label,
+.vendor_input input:valid ~ .vender_input_label {
+  top: -0.6rem;
+  color: #28293285;
+}
+.add_vendor_form {
+  width: 100%;
+  height: 100%;
+}
+.vendor_input_section {
+  width: 100%;
+  height: 100%;
+
+  padding: 30px;
+}
+.vendor_input {
+  width: 100%;
+  position: relative;
+  height: fit-content;
+}
+.vendor_input_section input,
+.vendor_input select {
+  width: 100%;
+  display: block;
+  border: 1px solid #63636361;
+  padding: 9px;
+  outline: none;
+  border-radius: 7px;
+  margin-top: 15px;
+}
+.vendor_input select:focus {
+  border: 1px solid #ffb400;
+}
+.vendor_input_section input:focus {
+  border: 1px solid #ffb400;
+}
+
+.vendor_input select {
+  font-size: 13px;
+  font-family: inherit;
+  color: #282932b3;
+}
+.form_groop {
+  display: flex;
+  margin-top: 15px;
+}
+.choos_servise_days {
+  font-size: 13px;
+  font-family: inherit;
+  color: #282932b3;
+}
+.file_button {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  position: absolute;
+  z-index: 1500;
+  padding: 17px;
+  height: 2rem;
+}
+.file_button:focus ~ .sp_vender_input_label {
+  border: 1px solid #ffb400;
+}
+.sp_vender_input_label {
+  background-color: #ffffff;
+  font-size: 13px;
+  font-family: inherit;
+  color: #282932b3;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #63636361;
+  border-radius: 7px;
+  position: absolute;
+  top: 1rem;
+  margin-left: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 14px;
+  padding: 17px;
+}
+.popup {
+  background-color: #ffffff;
+  border-radius: 15px;
+  width: 22rem;
+  height: 18rem;
+  position: fixed;
+  z-index: 105;
+  border: none;
+  box-shadow: 4px 3px 5px #d0d0d0;
+}
+.open_popup {
+  display: none;
+}
+.selected_img {
+  height: 100%;
+  height: 100%;
+  position: relative;
+}
+.selected_img i {
+  position: absolute;
+  top: 15px;
+  right: 16px;
+  font-size: 25px;
+  color: #ffffff;
+  cursor: pointer;
+}
+.popup img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+  border-radius: 15px;
+}
+.add_vendor_container .submit_vendor {
+  width: 100%;
+  color: hsl(0, 0%, 100%);
+  padding: 15px;
+  background-color: #ffb400;
+  margin-top: 5rem;
+  height: 38px;
+  border: none;
+}
+
+.vendor_input input{
+  font-size: 13px;
+  font-family: inherit;
+  color: #282932b3;
+}
+.phon_div{
+
+}
+.phon_div input{
+    width: 85%;
+    margin-right: 5px;
+}
+.otp_btn{
+    width: 25%;
+    height: 35px;
+    margin-top: 13px;
+     
+}
+#otp_btn{
+    margin: 0;
+    width  : 100%;
+color  :#ffb400 ;
+padding: 15px;
+background-color: #ffffff;
+border: 1px solid #ffb400;
+transition: 1s ease-in-out;
+text-align: center;
+padding: 4px;
+margin-top: 15px;
+cursor: pointer;
+}
+#otp_btn:hover{
+  
+color  : #ffffff;
+background-color: #ffb400;
+}
+#submit_vendor{
+    margin-top: 55px;
+    cursor: pointer;
+}
+.errLabel{
+  color: red;
+}

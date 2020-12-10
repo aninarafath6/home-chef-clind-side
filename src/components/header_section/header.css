@@ -46,7 +46,7 @@ nav ul li .NavLink:hover{
     color: #F8C628;
 }
 .phone i{
-    margin-right: 28px;
+    margin-right: 7px;
     color: #ffffff;
     transition:.5s ease-in-out;
     
@@ -69,14 +69,19 @@ nav ul li .NavLink:hover{
                     transition:.5s ease-in-out;
 }
 .cart_count{
-    width: 22px;
-    height:22px;
-    background-color: #F8C628;
-    border-radius: 50%;
-        transition:.5s ease-in-out;
+    width           : 15px;
+   height          :15px;
+   background-color: #F8C628;
+   border-radius   : 50%;
+   transition      :.5s ease-in-out;
+   position        : absolute;
+    left    : 16px;
+    top     : 13px;
 }
 .cart{
     display: flex;
+    position: relative;
+    margin-right: 50px;
     
 }
 .cart i {
@@ -91,8 +96,8 @@ nav ul li .NavLink:hover{
     justify-content: center;
 } .cart_count{
     color      : #282932;
-    font-size  : 12px;
-    font-weight: 500;
+    font-size  : 9px;
+    font-weight: bold;
     margin-right: 48px;
 }
 .search i{

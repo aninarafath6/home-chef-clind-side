@@ -1,0 +1,22 @@
+.otp_p{
+    text-align: center;
+    font-weight: 700;
+}
+.otp_pss_con{
+    width: 19rem;
+    height: 15rem;
+}
+.otp_pass_btn{
+    background-color: #f8c628;
+    color: #ffffff;
+    border: none;
+    outline: none;
+}
+.resend_div{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #f8c628;
+    transition: .2s ease-in-out;
+}

@@ -16,6 +16,9 @@ const Header = () => {
             
     //     }, 700);
     // }
+    const onLogout =()=>{
+      localStorage.clear('user_token')
+    }
     return (
       <div className="header_container">
         <div className="header_section">
@@ -57,8 +60,7 @@ const Header = () => {
               <div className="cart_count">2</div>
             </div>
             <div className="search">
-              <i class="fas fa-search"></i>
-            </div>
+<i onClick={onLogout} class="fas fa-sign-out-alt"></i>            </div>
           </div>
           {/* <input
           ref={searchRef}
