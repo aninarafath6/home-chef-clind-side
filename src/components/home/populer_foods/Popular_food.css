@@ -102,6 +102,7 @@ align-items    : center;
     outline      : none;
     border-radius: 5px;
     font-weight  : bold;
+    cursor: pointer;
 }
 .pf_price{
     widows     : 100%;

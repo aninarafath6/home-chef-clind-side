@@ -1,90 +1,103 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Redirect ,Link} from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import GoogleLogin from "react-google-login";
 import "./Login.css";
 import formData from "form-data";
 import axios from "axios";
-import google_icon from './assets/search.svg'
-import New_page from './assets/otp_or_password/otp_password'
+import google_icon from "./assets/search.svg";
+import New_page from "./assets/otp_or_password/otp_password";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { css } from "glamor";
+
 const Add_vendor = () => {
-    const inputRef = useRef();
-    const [login, setLogin] = useState(false);
-    const [phone, setPhone] = useState();
-    const [to_next_page, setTo_next_page] = useState();
-    const [count,setCount] = useState(0);
- 
+  const inputRef = useRef();
+  const [login, setLogin] = useState(false);
+  const [phone, setPhone] = useState();
+  const [to_next_page, setTo_next_page] = useState();
+  const [count, setCount] = useState(0);
 
-          useEffect(()=>{
-            let config = {};
+  useEffect(() => {
+    let config = {};
 
-            let token = localStorage.getItem("user_token");
-            if (token !== null) {
-              config.headers = { authorazation: "Bearer " + token };
-            }
-            axios.get("user/isLogged", config).then((res) => {
-              
-              setLogin(res.data);
-            });
-          },[count])
+    let token = localStorage.getItem("user_token");
+    if (token !== null) {
+      config.headers = { authorazation: "Bearer " + token };
+    }
+    axios.get("user/isLogged", config).then((res) => {
+      setLogin(res.data);
+    });
+  }, [count]);
 
   const onFailure = (response) => {
     // return alert(' oops!! your google login is failed!! please tray again')
-
   };
-      const onSuccess = (response) => {
-        console.log(response);
-       axios.post("auth/google-login",response).then((response)=>{
-         console.log(response);
-         if(response.data.auth){
-           if (response.data.user_token !== undefined) {
-             localStorage.setItem("user_token", response.data.user_token);
-             setCount(count + 1);
-            }
-            setLogin(true)
-            
-            return alert(`Hi, welcome to home-chef`);
-         }else{
-            return alert(`oops!!,sorry login failed tray again `);
-         }
-       })
-      };
-      const customStyle = {
-        color: "rgb(128 128 128)",
-        backgroundColor: "#fff",
-        padding: " 3px",
-        border: "1px solid rgb(196 196 196)",
-        outline: " none",
-        borderRadius: "10px",
-        width: "100%",
-        height: "39px",
-        position: "relative",
-        cursor: "pointer",
-      };
-
-      const onCheckEmail =()=>{
-        let email = inputRef.current.value;
-        let mail_format = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})|(\+[1-9]{1}[0-9]{3,14})+$/;
-        if(email === ""){
-          return alert("Please enter your Email or Phone Number")
-        }else if(!mail_format.test(email)){
-          return alert('please enter your Email or Phone Number')
-              to_next_page(false);
-
-        }else{
-          setPhone(inputRef.current.value);
-          axios.post("user/login",{input: inputRef.current.value}).then((response) => {
-            
-            if(response.data.user === false){
-              return alert("not user found in this information")
-            }
-            setTo_next_page(true);
-          });
+  const onSuccess = (response) => {
+    console.log(response);
+    axios.post("auth/google-login", response).then((response) => {
+      console.log(response);
+      if (response.data.auth) {
+        if (response.data.user_token !== undefined) {
+          localStorage.setItem("user_token", response.data.user_token);
+          notify("Hi, welcome to home chef");
+          setCount(count + 1);
+          setLogin(true);
         }
-       
+
+      } else {
+        notify("!!login failed");
       }
-  
+    });
+  };
+  const customStyle = {
+    color: "rgb(128 128 128)",
+    backgroundColor: "#fff",
+    padding: " 3px",
+    border: "1px solid rgb(196 196 196)",
+    outline: " none",
+    borderRadius: "10px",
+    width: "100%",
+    height: "39px",
+    position: "relative",
+    cursor: "pointer",
+  };
+
+  const onCheckEmail = () => {
+    let email = inputRef.current.value;
+    let mail_format = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})|(\+[1-9]{1}[0-9]{3,14})+$/;
+    if (email === "") {
+      notify("!! pleas fill the colum");
+    } else if (!mail_format.test(email)) {
+      setTo_next_page(false);
+      notify("!! pleas enter email or phone number with (country code)");
+    } else {
+      setPhone(inputRef.current.value);
+      axios
+        .post("user/login", { input: inputRef.current.value })
+        .then((response) => {
+          if (response.data.user === false) {
+            notify("!! not user found");
+          }
+
+          setTo_next_page(true);
+        });
+    }
+  };
+  const notify = (data,type) => {
+    toast.warn(data, {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
+
   return (
     <>
+      <ToastContainer />
       {to_next_page ? (
         <>
           <New_page email_or_pass={phone} data={inputRef.current.value} />

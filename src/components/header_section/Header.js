@@ -1,9 +1,23 @@
-import React,{useRef} from 'react';
+import React,{useEffect, useRef, useState} from 'react';
 import hamburger from './icons/hamburger.svg'
 import home_chef_logo  from './icons/home_chef_logo.svg'
 import './header.css'
 import { Link } from 'react-router-dom';
-const Header = () => {
+import axios from 'axios';
+const Header = (props) => {
+  const  [cart_count,set_Cart_count] = useState(0);
+  useEffect(()=>{
+    let config = {};
+
+    let token = localStorage.getItem("user_token");
+    if (token !== null) {
+      config.headers = { authorazation: "Bearer " + token };
+    }
+    axios.get("user/cart-count",config).then((response)=>{
+      set_Cart_count(response.data.count);
+      console.log(response);
+    })
+  },[props.data])
     // const searchRef =useRef();
     // const OtherRef =useRef();
 
@@ -31,44 +45,50 @@ const Header = () => {
           <nav>
             <ul>
               <li>
-                <Link to='/' className="NavLink">Home</Link>
+                <Link to="/" className="NavLink">
+                  Home
+                </Link>
               </li>
               <li>
-                <Link to='/' className="NavLink">About us</Link>
+                <Link to="/" className="NavLink">
+                  About us
+                </Link>
               </li>
               <li>
-                <Link to='/' className="NavLink">Our Shoppes</Link>
+                <Link to="/" className="NavLink">
+                  Our Shoppes
+                </Link>
               </li>
               <li>
-                <Link to='/' className="NavLink">Contact us</Link>
+                <Link to="/" className="NavLink">
+                  Contact us
+                </Link>
               </li>
             </ul>
           </nav>
-
+          <div className="cart">
+            <Link to="/cart">
+              <i class="fas fa-shopping-basket"></i>
+              <div className="cart_count">{cart_count}</div>
+            </Link>
+          </div>
+          {/* 
           <div className="other-nav">
             <div className="phone">
               <i class="fas fa-phone-alt"></i>
               <span className="phone-no">017-185-1195</span>
             </div>
             <div className="user">
-            <Link to="/login">
+              <Link to="/login">
                 <i class="fas fa-user"></i>
-            </Link>
+              </Link>
             </div>
-            <div className="cart">
-              <i class="fas fa-shopping-basket"></i>
-              <div className="cart_count">2</div>
-            </div>
+        
             <div className="search">
-<i onClick={onLogout} class="fas fa-sign-out-alt"></i>            </div>
-          </div>
-          {/* <input
-          ref={searchRef}
-          className="search_input search_none"
-          type="text"
-        /> */}
+              <i onClick={onLogout} class="fas fa-sign-out-alt"></i>
+            </div>
+          </div> */}
         </div>
-        .
       </div>
     );
 }

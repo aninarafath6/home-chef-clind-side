@@ -7,7 +7,10 @@ import cake from "./svg_icons/cake.svg";
 import imgSection_image from "./assets/pngfind.com-plate-png-546398.png";
 import Vendors from './vendor/vendor'
 import Popular_food from "./populer_foods/Popular_food";
-export default function Home() {
+export default function Home(props) {
+const onRemount =(e)=>{
+props.data(e)
+}
   return (
     <div>
       <div className="home_section">
@@ -62,7 +65,7 @@ export default function Home() {
 {/* vendors */}
 {/* populer foods */}
 
-<Popular_food/>
+<Popular_food data={onRemount}/>
 
   {/* populer foods */}
          

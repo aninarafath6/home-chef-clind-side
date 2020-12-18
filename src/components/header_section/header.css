@@ -1,6 +1,6 @@
 .header_section{
 width           : calc(100% - 20px);
-height          : 5rem;
+height          : 4rem;
 background-color: #282932;
 display         : flex;
 align-items     : center;
@@ -9,6 +9,7 @@ padding-top     : 0;
 padding-left    : 0;
 padding-right   : 0;
 padding-bottom: 0;
+justify-content: space-between;
 /* border-bottom: 1px dashed rgba(255, 255, 255, 0.186); */
 }
 .header_container{
@@ -45,7 +46,7 @@ nav ul li .NavLink{
 nav ul li .NavLink:hover{
     color: #F8C628;
 }
-.phone i{
+/* .phone i{
     margin-right: 7px;
     color: #ffffff;
     transition:.5s ease-in-out;
@@ -56,18 +57,18 @@ nav ul li .NavLink:hover{
     margin-right: 57px;
     font-size   : 13px;
     font-weight : 600;
-}
-.other-nav{
+} */
+/* .other-nav{
     display: flex;
-    transform: translateY(0);
+  
     transition: 1s ease-in-out;
-}
-.user i{
+} */
+/* .user i{
     color: #ffffff;
     margin-right:48px;
         font-size: 21px;
                     transition:.5s ease-in-out;
-}
+} */
 .cart_count{
     width           : 15px;
    height          :15px;
@@ -105,6 +106,7 @@ nav ul li .NavLink:hover{
     transition:.5s ease-in-out;
 }
 .search i:hover,
+.search a i:hover
 .phone i:hover,
 .cart i:hover,
 .user i:hover{
@@ -122,11 +124,10 @@ background-color: #ffffff;
     border: none;
     box-shadow: 2px 2px 2px #ffffff;
 }
-.search_none{
-    width: 0;
-    padding: 0;
-    transform: translateX(50rem);
+#cartIcon{
+width: 0;
 }
+
 .display_none{
 display: none;
 }
