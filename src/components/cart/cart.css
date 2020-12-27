@@ -68,7 +68,7 @@ font-size: 14px;
     justify-content: center;
     align-items: center;
 }
-.Place_order_btn button{
+#place_btn{
       width           : 90%;
     color           : #ffffff;     
     background-color: orange;
@@ -78,7 +78,10 @@ font-size: 14px;
     font-weight     : 700;
     border-radius   : 2px;
     cursor: pointer;
+    text-align: center;
+    text-decoration: none;
 }
+
 .cart_item_card{
     display: flex;
 

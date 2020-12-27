@@ -15,14 +15,16 @@ justify-content: space-between;
 .header_container{
         padding: 0px 47px 0px 47px;
     background: #282932;
+
 }
 .hamburger{
     width: 1.9rem;
-    margin-right: 88px;
+    display:none;
+   
 }
 .logo{
     width: 8rem;
-    margin-right: 13rem;
+  
 }
 nav ul{
         display: flex;
@@ -30,13 +32,16 @@ nav ul{
         padding: 0;
          font-size: 11px;
         font-weight: bold;
-         margin-right: 9rem;}
-nav ul li{
+        }
+nav ul li,.cart i{
     margin-right: 46px; 
-   
+  transition:1s ease;
 }
 nav ul li.active Link{
     color: #F8C628;
+}
+nav ul li:hover{
+     transform: scale(.9);
 }
 nav ul li .NavLink{
     color: #ffffff;

@@ -2,16 +2,18 @@ import React,{useEffect,useRef,useState} from 'react'
 import './cart.css'
 import test_image from "./item_01-800x800.jpg";
 import axios from 'axios'
-import { Link, Redirect } from 'react-router-dom';
+import { Link, Redirect,useHistory } from 'react-router-dom';
  import empty_cart_image from './assets/undraw_empty_cart_co35.svg'
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function Cart() {
+  let routeHistory =  useHistory();
   const inputRef = useRef();
     const [cart_items,set_cart_items] = useState([]);
     const [isLogged,setLogged] = useState();
     const [remount,setRemount] = useState(0);
+    const [amount,setAmount] = useState({});
 
   
     useEffect(()=>{
@@ -24,6 +26,9 @@ export default function Cart() {
       
         axios.get("/isLogged",config).then(response=>{
             setLogged(response.data.loggin);
+            if(!response.data.loggin){
+              routeHistory.push('/login')
+            }
         })
        axios.get("user/user-cart",config).then((response) => {
         //  console.log(response);
@@ -31,27 +36,47 @@ export default function Cart() {
         console.log(response);
 
        });
+       axios.get('user/get-total',config).then(response=>{
+         setAmount(response.data.total)
+
+       })
+
 
     },[remount])
     console.log({cart:cart_items})
     const onChange_Quantity =(cart_id,item_id,count)=>{
-     let quantity = document.getElementById(item_id).value = parseInt(document.getElementById(item_id).value) + count;
+ let quantity = parseInt(document.getElementById(item_id).value);
+              setRemount(remount + 1);
+
       let object = {
         cart_id: cart_id,
         item_id: item_id,
         value: count,
-        quantity:quantity,
+        quantity:quantity ,
         status:false
 
        
       };
+        let config = {};
+
+                let token = localStorage.getItem("user_token");
+                if (token !== null) {
+                  config.headers = { authorazation: "Bearer " + token };
+                }
           axios.post('user/change-quantity',object).then(response=>{
             console.log(response);
             if(response.data.removeItem){
               notify('1 item is removed')
-              setRemount(remount + 1)
+           
+         setRemount(remount + 1);
             }
-          
+           
+                   let quantity = (document.getElementById(item_id).value =
+                     parseInt(document.getElementById(item_id).value) + count);
+                     setRemount(count + 2);
+               axios.get("user/get-total", config).then((response) => {
+                 setAmount(response.data.total);
+               });
           })
         }
           const onInpQntyCange = (e, item_id, cart_id) => {
@@ -78,32 +103,43 @@ export default function Cart() {
     });
   };
 
+
+  const remove_cart_item =(cart_id,item_id)=>{
+    const object={
+      cart_id:cart_id,
+      item_id:item_id
+    }
+     let config = {};
+                                                                 
+                let token = localStorage.getItem("user_token");
+                if (token !== null) {
+                  config.headers = { authorazation: "Bearer " + token };
+                }
+
+    axios.post("user/remove-cart-item",object,config).then(response=>{
+       if (response.data.removeItem) {
+         notify("1 item is removed");
+
+         setRemount(remount + 1);
+       }
+    })
+  }
     return (
       <>
-        {isLogged === false ? (
-          <>
-          <Redirect to='/login'/>
-          </>
-        ) : (
-          <>
-            {cart_items.length === 0 ? (
+        {cart_items[0] === undefined ? (
               <>
-              <div className="cart_is_empty">
-                  <img src={empty_cart_image} alt=""/>
+                <div className="cart_is_empty">
+                  <img src={empty_cart_image} alt="" />
                   <Link to="/">Cart Is Empty!</Link>
-              </div>
-              
+                </div>
               </>
             ) : (
               <>
-                 <ToastContainer />
+                <ToastContainer />
                 <div className="cart_wrapper">
                   <div className="cart_container">
                     <div className="cart_items_container">
-                    
-
-                    {
-                      cart_items.map((cart_item,key)=>{
+                      {cart_items.map((cart_item, key) => {
                         return (
                           <div className="cart_item_card">
                             <div className="cart_item_img">
@@ -147,9 +183,9 @@ export default function Cart() {
                                   >
                                     +
                                   </button>
-
+                                  {/* <span  id={cart_item.food_item._id}>{cart_item.quantity}</span> */}
                                   <input
-                                  type="number"
+                                    type="number"
                                     onChange={(e) =>
                                       onInpQntyCange(
                                         e,
@@ -158,7 +194,7 @@ export default function Cart() {
                                       )
                                     }
                                     id={cart_item.food_item._id}
-                                    type="text"
+                                    type="number"
                                     defaultValue={cart_item.quantity}
                                   />
 
@@ -175,7 +211,15 @@ export default function Cart() {
                                     -
                                   </button>
 
-                                  <button className="item_remove_from_cart">
+                                  <button
+                                    onClick={() =>
+                                      remove_cart_item(
+                                        cart_item._id,
+                                        cart_item.food_item._id
+                                      )
+                                    }
+                                    className="item_remove_from_cart"
+                                  >
                                     Remove
                                   </button>
                                 </div>
@@ -183,46 +227,47 @@ export default function Cart() {
                             </div>
                           </div>
                         );
-                      })
-                    }
+                      })}
                     </div>
                     <div className="price_details">
                       <div className="price_details_card">
-                        {/* <div className="price_details_header">
-                <h4>PRICE DETAILS</h4>
-              </div> */}
-                        <div className="price_deti">
-                          <div className="price_container">
-                            <p>Price(2 items)</p>
-                            <p>₹14,597</p>
-                          </div>
-                          <div className="price_container">
-                            <p>Discount</p>
-                            <p>₹12,597</p>
-                          </div>
-                          <div className="price_container">
-                            <p>Delivery Charge</p>
-                            <p>Free</p>
-                          </div>
-                          <div className="price_container total_cart_amount">
-                            <p>Total Amount</p>
-                            <p>₹18,597</p>
-                          </div>
-                          <div className="price_container  cart_saved1-amount">
-                            <p>You will save ₹3,800 on this order</p>
-                          </div>
-                          <div className="price_container Place_order_btn">
-                            <button>PLACE ORDER</button>
-                          </div>
-                        </div>
+                        {amount.total !== undefined ? (
+                          <>
+                            {" "}
+                            <div className="price_deti">
+                              <div className="price_container">
+                                <p>Price({cart_items.length} items)</p>
+                                <p>₹{amount.total}</p>
+                              </div>
+                              <div className="price_container">
+                                <p>Discount</p>
+                                <p>₹{amount.discount}</p>
+                              </div>
+                              <div className="price_container">
+                                <p>Delivery Charge</p>
+                                <p>Free</p>
+                              </div>
+                              <div className="price_container total_cart_amount">
+                                <p>Total Amount</p>
+                                <p>₹{amount.total}</p>
+                              </div>
+                              <div className="price_container  cart_saved1-amount">
+                                <p>You will save ₹3,800 on this order</p>
+                              </div>
+                              <div className="price_container Place_order_btn">
+                                <Link id="place_btn" to="/placeOrder">PLACE ORDER</Link>
+                              </div>
+                            </div>
+                          </>
+                        ) : (
+                          <> </>
+                        )}
                       </div>
                     </div>
                   </div>
                 </div>
               </>
             )}
-          </>
-        )}
-      </>
+</>
     );
 }

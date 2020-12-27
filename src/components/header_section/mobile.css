@@ -1,0 +1,43 @@
+@media(max-width:768px){
+
+    .hamburger {
+    right   : 18px;
+    width   : 1.3rem;
+    display : block;
+    position: absolute;
+    z-index : 15;
+
+    }
+    .hambargerSection{
+        width      : 50px;
+        height     : 100%;
+        display    : flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .cart{
+        position: absolute;
+        right:  5%;
+    }
+    .logo_section{
+    display        : flex;
+    flex-direction : column;
+    justify-content: center;
+    position       : absolute;
+    z-index        : 15;
+    }
+    .fix_header{
+        position: fixed;
+    }
+    .header_section{
+    transition: 1s ease-in-out;
+    }
+    .header_container{
+    left      : 0;
+    background: linear-gradient(#282932, #282932);
+    right     : 0;
+    transition: 1s ease-in-out;
+    }
+    
+}

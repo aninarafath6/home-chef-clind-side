@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./hero.css";
+import './mobile.css'
 import burger from "./svg_icons/burger.svg";
 import pizza from "./svg_icons/pizza.svg";
 import cake from "./svg_icons/cake.svg";
@@ -27,13 +28,13 @@ props.data(e)
                 The perfect place to enjoy fine food withexellent <br /> service
                 in comfortable sarroundings.{" "}
               </p>
-              <button className="order_now">Order Now</button>
+             
             </div>
             <div className="img_section">
-              <img src={imgSection_image} alt="" />
+              <img className="topImage" src={imgSection_image} alt="" />
             </div>
           </div>
-          <div className="catlog_section">
+          {/* <div className="catlog_section">
             <div className="catlog_card">
               <Link>
                 <div className="catlog_circle">
@@ -58,7 +59,7 @@ props.data(e)
               </Link>
               <span>Cake</span>
             </div>
-          </div>
+          </div> */}
           {/* hero section */}
 {/* vendors */}
 <Vendors/>

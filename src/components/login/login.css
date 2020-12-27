@@ -1,6 +1,6 @@
 .login{
     width              : 100%;
-    height             : calc(100vh - 6.3rem);
+    height             : calc(100vh - 4rem);
     background         : url('./assets/add_vendor_backround.jpg');
     background-position: center;
     background-size    : cover;

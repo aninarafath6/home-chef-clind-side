@@ -1,0 +1,249 @@
+* {
+  box-sizing: border-box;
+}
+.display-flex {
+  display: flex;
+  flex-direction: row;
+}
+.plac_bc{
+  width:100%;
+  height: calc(100vh - 4rem);
+   background         : url('./asset/food-2068217_1920.jpg');
+ background-position: center;
+ background-repeat  : no-repeat;
+ background-size    : cover;
+ 
+}
+.Place_order {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+.plac_overlay{
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(#282932, #282932d4);
+}
+.deliveryAdress {
+  color: #f8c628;
+}
+.accordian {
+  width: 55%;
+}
+.addressWrapper {
+     padding        : 1rem;
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    flex-direction : column;
+    width          : 100%;
+    box-shadow     : 0 0.2px 4px rgba(104, 104, 104, 0.431);
+    background     : #fff;
+    border-radius  : 5px;
+}
+.addressForm {
+width:29rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.width-full {
+  width: 98%;
+  position: relative;
+  margin-top: 12px;
+}
+.city {
+  position: relative;
+}
+.cityLabel {
+  
+}
+.hideAdrssForm {
+    transition: 1s ease-in-out;
+    transform: translateX(-80rem);
+visibility: hidden;
+}
+.state {
+  display: flex;
+  flex-direction: row;
+}
+.width-half {
+  width: 50%;
+}
+.adressInp {
+  border-radius: 5px;
+  padding: 5px;
+  outline: none;
+  border: 0.5px solid rgba(114, 114, 114, 0.296);
+  font-size: 13px;
+  background-color: #fff;
+}
+.adressLabel {
+  color: rgba(89, 89, 89, 0.652);
+  background-color: #ffffff;
+}
+.adressLabel {
+  position: absolute;
+  left: 0;
+  top: 1rem;
+  z-index: 1;
+  font-size: 13px;
+  margin-left: 6px;
+  transition: 0.3s cubic-bezier(0.38, 0.02, 0.69, 0.99);
+}
+.city-label{
+  position: absolute;
+  z-index: 1;
+  top:1rem;
+  left: 0rem;
+   
+  font-size: 13px;
+  margin-left: 6px;
+  transition: 0.3s cubic-bezier(0.38, 0.02, 0.69, 0.99);
+  color: rgba(89, 89, 89, 0.652);
+  background-color: #ffffff;
+}
+.width-full input:focus ~ .adressLabel,
+.width-full input:valid ~ .adressLabel {
+    font-size: 11px;
+  position: absolute;
+  top: .3rem;
+}
+.state .width-half input:focus ~ .adressLabel,
+.state .width-half input:valid ~ .adressLabel {
+  position: absolute;
+  top: .3rem;
+      font-size: 11px;
+}
+.city .width-half input:focus ~ .cityLabel,
+.city .width-half input:valid ~ .adressLabel {
+  position: absolute;
+  top: .3rem;
+      font-size: 11px;
+}
+.adressInp:focus {
+  background-color: #fff;
+}
+
+.choosePayment{
+      color: rgb(249 198 40);
+  padding: 18px 0;
+}
+.payment{
+ 
+  height: 0;
+    box-shadow: 0 0.2px 4px rgba(104, 104, 104, 0.431);
+       padding: 1rem 2rem 2rem 2rem;
+    border-radius: 5px;
+    padding-bottom: 3rem;
+    position: absolute;
+    top: 15rem;
+   
+    transition: 1s ease-in-out;
+    
+
+}
+
+.pLabel{
+    margin-left: 1rem;
+    margin-bottom: .9rem;
+    color: rgb(114, 114, 114);
+  
+}
+.pH4{
+     padding: 9px 0;
+}
+.pey{
+    display: flex;
+    flex-direction: column;
+}
+.flex{
+    display: flex;
+    flex-direction: row;
+}
+.checkout-btn{
+   position: absolute;
+   right: .2rem;
+}
+.back-btn{
+   position: absolute;
+   right: 7rem;
+}
+.d{
+visibility: hidden;
+position: absolute;
+top:0;
+opacity: 0;
+
+
+}
+.vewPaymet{
+    visibility: visible;
+ width: 18rem;
+height: 16rem;
+background-color: #fff;
+top: 13rem;
+opacity: 1;
+}
+#checkout-btn{
+  outline: none;
+  border: none;
+  width: 53%;
+padding: 9px;
+}
+
+@media (max-width: 800px) {
+  .addressForm {
+    width: 96%;
+  }
+}
+
+.ctnBTn{
+      display        : inline;
+    background     : #f9c628;
+    width          : 97%;
+    padding        : 4px;
+    align-items    : center;
+    text-align     : center;
+    color          : white;
+    text-decoration: none;
+    border-radius  : 4px;
+    z-index: 1;
+}
+.ctnBTn::before{
+  content: "";
+  width: 0%;
+  height: 100%;
+  background-color: #282932;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: .3s ease-in-out;
+  z-index: -1;
+  opacity: 0;
+}
+.ctnBTn::after{
+  content: "";
+  width: 0%;
+  height: 100%;
+  background-color: #282932;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: .3s ease-in-out;
+  z-index: -1;
+  opacity: 0;
+}
+
+.ctnBTn:hover::before,.ctnBTn:hover::after{
+    width: 50%;
+   opacity: 1;
+    border-radius : 0px;}
+
+
+

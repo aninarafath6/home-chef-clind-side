@@ -1,37 +1,38 @@
 import { useState } from "react";
-import { BrowserRouter as Router,Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Cart from "./components/cart/Cart";
 import Header from "./components/header_section/Header";
 import Home from "./components/home/home";
 import Login from "./components/login/Login";
 import Signup from "./components/signup/Signup";
+import PlaceOrder from "./components/placeOrder/Place_order";
+import Order_success from './components/order_success/order_success'
+import Orders from './components/view_orders/View_orders' 
 function App() {
- const [remount, setRemount] = useState(0);
+  const [remount, setRemount] = useState(0);
 
-  const onRemount =(e)=>{
-setRemount(e)
-  }
+  const onRemount = (e) => {
+    setRemount(e);
+  };
   return (
     <div className="App">
-     
-<Router>
-   <Header data={remount}/>
+      <Router>
+        <Header data={remount} />
 
-<Switch>
+        <Switch>
+          <Route path="/" exact>
+            <Home data={onRemount} />
+          </Route>
 
-<Route path="/" exact>
-  <Home data={onRemount}/>
-</Route>
-
-<Route path='/login' component={Login}/>
-<Route path='/signup' component={Signup}/>
-<Route path='/cart' component={Cart}/>
-
-
-
-</Switch>
-  </Router>   
-   </div>
+          <Route path="/login" component={Login} />
+          <Route path="/signup" component={Signup} />
+          <Route path="/cart" component={Cart} />
+          <Route path="/placeOrder" component={PlaceOrder} />
+          <Route path="/Order_success" component={Order_success} />
+          <Route path="/orders" component={Orders} />
+        </Switch>
+      </Router>
+    </div>
   );
 }
 

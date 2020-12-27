@@ -1,77 +1,85 @@
 import React,{useEffect,useState} from 'react';
 import './Cafes&Restaurants.css';
+import './mobile.css'
 import test_image from './food-3309418_1920.jpg';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
+
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from "react-responsive-carousel";
+
 export default function Vendor() {
+
+ 
     const [vendors,setVendors]= useState([]);
    useEffect(()=>{
        axios.get('vendors').then((response)=>{
-           setVendors(response.data.vendors);
-           setVendors(response.data.vendors);
+           setVendors(response.data.data);
 
        })
    },[])
     return (
-        <div>
-             {/* <Cafes_Restaurants/> */}
-          <div className="cafe_section">
-            <div className="cafe_label">
-              <h3>Cafes & Restaurants</h3>
-            </div>
-        {
-            vendors.map((vendor)=>{
-                return(
-                        <div className="vendor_card_wrapper">
-              <div className="vendor_image_wrapper">
-                <img
-                   src={
-                                "http://localhost:3008/vendor_images/" +
-                                vendor._id +
-                                ".jpg"
-                              }
-                  alt=""
-                  className="vender_img"
-                  loading="lazy"
-                />
-              </div>
-              <div className="vendor_info_wrapper">
-                <div className="vendor_name">
-                  <h4>{vendor.shope_name}</h4>
-                </div>
-                <div className="vendor_detials">
-                  <ul className="vendor_info">
-                    <li>
-                      <i className="fas fa-calendar-alt"></i>{" "}
-                        <span>{vendor.serviceDays.toLowerCase()}</span>
-                    </li>
-                    <li>
-                      <i className="fas fa-clock"></i>{" "}
-                     <span>{vendor.serviceTime.toLowerCase()}</span>
-                    </li>
-                    <li>
-                      <i className="fas fa-map-marked-alt"></i>{" "}
-                       <span>{vendor.location.toLowerCase()}</span>
-                    </li>
-                  </ul>
-                </div>
-                <div className="IWrapper">
-                  <Link>
-                    <div className="edit_vendor">
-                      <div className="edit_circle">
-                        <i class="fas fa-pencil-alt"></i>
+      <div>
+        {/* <Cafes_Restaurants/> */}
+        <div className="cafe_section">
+          <div className="cafe_label">
+            <h3>Cafes & Restaurants</h3>
+          </div>
+           <div className="vendor_cards"></div>
+            {vendors.map((vendor, key) => {
+              return (
+                <>
+                  <div className="vendor_card" >
+                    <div className="face face1">
+                      <div className="vendor_card_img_content">
+                        <img
+                          src={
+                            "http://localhost:3008/vendor_images/" +
+                            vendor._id +
+                            ".jpg"
+                          }
+                          alt=""
+                        />
+                        <div className="shope_name_wrapper">
+                          <span>{vendor.shope_name}</span>
+                        </div>
                       </div>
                     </div>
-                  </Link>
-                </div>
-              </div>
-            </div>
-                )
-            })
-                    }
-          </div>
-
-      {/* <Cafes_Restaurants/> */}
+                    <div className="face face2">
+                      <div className="vendor_card_info_content">
+                        <h3>{vendor.shope_name}</h3>
+                        <ul className="vendor_info">
+                          <li>
+                            <i className="fas fa-calendar-alt"></i>{" "}
+                            <span>{vendor.serviceDays.toLowerCase()}</span>
+                          </li>
+                          <li>
+                            <i className="fas fa-clock"></i>{" "}
+                            <span>{vendor.serviceTime.toLowerCase()}</span>
+                          </li>
+                          <li>
+                            <i className="fas fa-map-marked-alt"></i>{" "}
+                            <span>{vendor.location.toLowerCase()}</span>
+                          </li>
+                        </ul>
+                      </div>
+                      <div className="IWrapper">
+                        <Link>
+                          <div className="C">
+                            <div className="edit_circle">
+                              <i class="fas fa-arrow-right"></i>
+                            </div>
+                          </div>
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                </>
+              );
+            })}
+             </div>
         </div>
-    )
+
+     
+    );
 }

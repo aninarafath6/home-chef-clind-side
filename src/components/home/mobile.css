@@ -1,0 +1,26 @@
+
+@media(max-width:425px){
+
+    .catlog_section .catlog_card{
+    width           : 19rem;
+    margin          : 16px;
+    height          : 6rem;
+    border-radius   : 16px;
+    background-color: #fff;
+    margin-right    : 56px;
+    box-shadow      : 0 3px 6px #303030a3;
+    display         : flex;
+    align-items     : center;
+    padding-left    : 10px;
+    padding         : 7px;
+    }
+    .catlog_section{
+    height: 21rem;
+    flex-direction: column;
+    flex-direction: 19px;
+    align-items: center;
+    margin-left: 32px;
+    }
+   
+    
+}

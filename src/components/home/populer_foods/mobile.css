@@ -1,0 +1,126 @@
+@media (max-width:1315px){
+
+        .img_section img {
+           width: 30rem;
+       }
+       .info_section h1 {
+            font-size: 2.3rem;
+            margin-bottom: 9px;
+        }
+        .info_section span {
+            font-size: 2.6rem;
+        }
+        .info_section p {
+        color      : #ffffffb3;
+        margin-left: 28px;
+        font-size  : 15.1px;
+        font-family: cursive;
+         }
+        .info_section button {
+        padding: 0.9rem;
+         }
+
+
+}
+
+@media(max-width:998px){
+
+    .img_section img {
+    width: 25rem;
+    }
+    .info_section h1 {
+    font-size: 1.3rem;
+    }
+    .info_section span {
+    font-size: 1.6rem;
+    }
+    .info_section p{
+    font-size: 11.1px;
+    }
+}
+
+@media(max-width:768px){
+
+    .img_section img {
+        display: none;
+    }
+
+    .info_section {
+        width      : 100%;
+        height     : 100%;
+        align-items: center;
+    }
+
+    .hero_backround {
+        flex-direction: column;
+    }
+
+    .info_section span {
+        font-size: 3rem;
+    }
+
+    .info_section h1 {
+        font-size : 2.9rem;
+        text-align: center;
+    }
+    .info_section button {
+    display: none;
+    }
+    .info_section p {
+    display  : none;
+    }
+       nav ul {
+       background-color : #282932;
+       height           : 100vh;
+       position         : fixed;
+       width            : 100%;
+       left             : 0;
+       right            : 0;
+       bottom           : 0;
+       top              : 0;
+       transition       : 1s ease-out;
+       clip-path        : circle(100px at 85% -20%);
+       -webkit-clip-path: circle(100px at 85% -20%);
+        display        : flex;
+        flex-direction : column;
+        align-items    : center;
+        justify-content: center;
+        height: calc(100%);
+        
+   }
+   nav ul li{
+       margin-top: 5rem;
+       opacity: 0;
+   }
+   nav ul li:nth-child(1){
+       transition: all 0.5s ease 0.2s;
+       
+   }
+   nav ul li:nth-child(2){
+       transition: all 0.5s ease 0.4s;
+   }
+   nav ul li:nth-child(3){
+       transition: all 0.5s ease 0.6s;
+   }
+   nav ul li:nth-child(4){
+       transition: all 0.5s ease 0.8s;
+   }
+   nav .open {
+       transition       : 1s ease-out;
+       clip-path        : circle(1000px at 85% -20%);
+       -webkit-clip-path: circle(1000px at 85% -20%);
+   }
+   .fade{
+       opacity: 1;
+   }
+   .Z_index_-1{
+       position: absolute;
+       z-index: -1;
+   }
+    .ads h1 {
+     font-size: 32px;
+    }
+
+    
+    
+}

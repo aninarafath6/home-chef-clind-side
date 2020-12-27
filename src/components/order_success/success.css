@@ -1,0 +1,39 @@
+.order_success_container{
+    width: 100%;
+    height: calc(100vh - 4rem);
+
+}
+.success_img_wrapper{
+    width      : 100%;
+    height     : 100%;
+    display    : flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.success_img_wrapper h4{
+    padding       : 15px 0;
+    color         : #282932;
+    font-size     : 18px;
+    font-family   : cursive;
+    animation-duration: .8s;
+}
+.success_img_wrapper img{
+    width         : 20rem;
+    animation-duration: .8s;
+
+}
+.toViewLink{
+    padding        : 8px 23px;
+    background     : #f9c628;
+    color          : #fff;
+    text-decoration: none;
+    border-radius  : 4px;
+    z-index: 1;
+    transition: .5s ease-in-out;
+}
+.toViewLink:hover{
+    background : #ffd03c;
+}
+
+

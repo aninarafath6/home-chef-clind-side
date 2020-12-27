@@ -2,10 +2,15 @@ import React,{useEffect, useRef, useState} from 'react';
 import hamburger from './icons/hamburger.svg'
 import home_chef_logo  from './icons/home_chef_logo.svg'
 import './header.css'
+import './mobile.css'
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 const Header = (props) => {
+  const menuRef = useRef()
+  const fixedRef = useRef();
   const  [cart_count,set_Cart_count] = useState(0);
+  const  [count,setCount] = useState(0);
+  const [logged, setLogged] = useState();
   useEffect(()=>{
     let config = {};
 
@@ -13,37 +18,36 @@ const Header = (props) => {
     if (token !== null) {
       config.headers = { authorazation: "Bearer " + token };
     }
+       axios.get("/isLogged", config).then((response) => {
+         setLogged(response.data.loggin);
+       });
     axios.get("user/cart-count",config).then((response)=>{
       set_Cart_count(response.data.count);
       console.log(response);
     })
   },[props.data])
-    // const searchRef =useRef();
-    // const OtherRef =useRef();
+const onOpenMenu =()=>{
+  const menus = document.querySelectorAll('nav ul li');
 
+  menuRef.current.classList.toggle('open');
+  fixedRef.current.classList.toggle("fix_header");
+  menus.forEach(menu=>{
+    menu.classList.toggle("fade");
+  })
 
-    // const search_btn_clicked =()=>{
-    //     searchRef.current.classList.remove("search_none");
-    //     OtherRef.current.classList.add("anim");
-    //     setTimeout(() => {
-    //         OtherRef.current.classList.add("display_none");
-            
-    //     }, 700);
-    // }
+}
     const onLogout =()=>{
       localStorage.clear('user_token')
+      setCount(15 + 10 +count)
     }
     return (
-      <div className="header_container">
+      <div className="header_container" ref={fixedRef}>
         <div className="header_section">
-          {/* <div className="hambargerSection">
-            <img className="hamburger" src={hamburger} alt="" />
-          </div> */}
           <div className="logo_section">
             <img className="logo" src={home_chef_logo} alt="" />
           </div>
           <nav>
-            <ul>
+            <ul ref={menuRef}>
               <li>
                 <Link to="/" className="NavLink">
                   Home
@@ -64,30 +68,46 @@ const Header = (props) => {
                   Contact us
                 </Link>
               </li>
+              <li>
+                {logged ? (
+                  <Link to="/orders" className="NavLink">
+                    Orders
+                  </Link>
+                ) : (
+                  <Link to="/signup" className="NavLink">
+                    Sign Up
+                  </Link>
+                )}
+              </li>
             </ul>
           </nav>
-          <div className="cart">
-            <Link to="/cart">
-              <i class="fas fa-shopping-basket"></i>
-              <div className="cart_count">{cart_count}</div>
-            </Link>
-          </div>
-          {/* 
-          <div className="other-nav">
-            <div className="phone">
-              <i class="fas fa-phone-alt"></i>
-              <span className="phone-no">017-185-1195</span>
-            </div>
-            <div className="user">
-              <Link to="/login">
-                <i class="fas fa-user"></i>
+          {logged ? (
+            <div className="cart">
+              <Link to="/cart">
+                <i class="fas fa-shopping-basket"></i>
+                <div className="cart_count">{cart_count}</div>
               </Link>
             </div>
-        
-            <div className="search">
-              <i onClick={onLogout} class="fas fa-sign-out-alt"></i>
+          ) : (
+            <div className="cart">
+              <Link to="/login ">
+                <i class="fas fa-sign-in-alt"></i>
+              </Link>
             </div>
-          </div> */}
+          )}
+          {logged ? (
+            <div className="cart">
+              <Link onClick={onLogout}>
+                <i class="fas fa-sign-out-alt"></i>
+              </Link>
+            </div>
+          ) : (
+            <div className="no"></div>
+          )}
+
+          <div onClick={onOpenMenu} className="hambargerSection">
+            <img className="hamburger" src={hamburger} alt="" />
+          </div>
         </div>
       </div>
     );
