@@ -56,7 +56,7 @@ position: relative;
 }
 .vendor_cards{
     display: flex;
-    flex-wra
+    flex-wrap:wrap;p:
 }
 .vendor_card_img_content{
     overflow: hidden;

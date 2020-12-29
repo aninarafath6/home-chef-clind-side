@@ -115,14 +115,28 @@ border-radius: 7px;
 margin-top   : 15px;
 background: #f8c628;
 color: #ffffff;
-transition: .5s ease-in-out;
+transition: .5s cubic-bezier(1, 0.19, 0.09, -0.37);
 border: none;
 outline: none;
+position: relative;
+z-index: 1;
 }
-.login_button:hover{
-  background: #f8c628;
-  color: #ffffff;
-  border: none;
+.login_button::before{
+  content:'';
+  width:0%;
+  height:100%;
+  position: absolute;
+  left:0;
+  top:0; 
+  background-color: #282932; 
+  z-index: -1;
+
+transition: .5s .5s cubic-bezier(0.74, 0.07, 0.25, 1.01);
+}
+
+.login_button:focus::before{
+  width: 100%;
+  border-radius: 7px;
 }
 
 .hidden{
@@ -146,5 +160,5 @@ outline: none;
 
 }
 .to_sign_up a:hover{
-  transform: scale(1);
+  transform: scale(.8);
 }
