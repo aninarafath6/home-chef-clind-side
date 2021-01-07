@@ -95,3 +95,16 @@
 [1228/001907.612:ERROR:scoped_process_suspend.cc(40)] NtResumeProcess: An attempt was made to access an exiting process. (0xc000010a)
 [1228/001907.734:ERROR:scoped_process_suspend.cc(40)] NtResumeProcess: An attempt was made to access an exiting process. (0xc000010a)
 [1228/112132.781:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[0102/112935.591:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0102/120353.088:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0102/121353.136:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0102/121353.137:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[0102/121353.139:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0102/121353.139:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0102/121853.148:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0102/123353.169:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0102/124854.012:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0102/130354.244:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0102/131336.437:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0102/181400.316:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[0103/101847.912:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
