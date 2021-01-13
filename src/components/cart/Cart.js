@@ -146,7 +146,7 @@ export default function Cart() {
                             <div className="cart_item_img">
                               <img
                                 src={
-                                  "http://142.93.209.150:3000/vendor_food_image/" +
+                                  "http://localhost:3005/vendor_food_image/" +
                                   cart_item.food_item._id +
                                   ".jpg"
                                 }

@@ -33,7 +33,7 @@ export default function Vendor() {
                       <div className="vendor_card_img_content">
                         <img
                           src={
-                            "http://142.93.209.150:3000/vendor_images/" +
+                            "http://localhost:3005/vendor_images/" +
                             vendor._id +
                             ".jpg"
                           }
