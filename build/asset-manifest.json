@@ -1,0 +1,42 @@
+{
+  "files": {
+    "main.css": "/home-chef/static/css/main.77de8dc7.chunk.css",
+    "main.js": "/home-chef/static/js/main.971f0f67.chunk.js",
+    "main.js.map": "/home-chef/static/js/main.971f0f67.chunk.js.map",
+    "runtime-main.js": "/home-chef/static/js/runtime-main.26449b66.js",
+    "runtime-main.js.map": "/home-chef/static/js/runtime-main.26449b66.js.map",
+    "static/css/2.f0e2420d.chunk.css": "/home-chef/static/css/2.f0e2420d.chunk.css",
+    "static/js/2.8648e811.chunk.js": "/home-chef/static/js/2.8648e811.chunk.js",
+    "static/js/2.8648e811.chunk.js.map": "/home-chef/static/js/2.8648e811.chunk.js.map",
+    "static/js/3.657cce1c.chunk.js": "/home-chef/static/js/3.657cce1c.chunk.js",
+    "static/js/3.657cce1c.chunk.js.map": "/home-chef/static/js/3.657cce1c.chunk.js.map",
+    "index.html": "/home-chef/index.html",
+    "static/css/2.f0e2420d.chunk.css.map": "/home-chef/static/css/2.f0e2420d.chunk.css.map",
+    "static/css/main.77de8dc7.chunk.css.map": "/home-chef/static/css/main.77de8dc7.chunk.css.map",
+    "static/js/2.8648e811.chunk.js.LICENSE.txt": "/home-chef/static/js/2.8648e811.chunk.js.LICENSE.txt",
+    "static/media/Signup.css": "/home-chef/static/media/add_vendor_backround.8f92d06d.jpg",
+    "static/media/burger.e4669015.svg": "/home-chef/static/media/burger.e4669015.svg",
+    "static/media/cake.04074bd4.svg": "/home-chef/static/media/cake.04074bd4.svg",
+    "static/media/place_order.css": "/home-chef/static/media/food-2068217_1920.b6066804.jpg",
+    "static/media/hero.css": "/home-chef/static/media/food-3309418_1920.6e0bd960.jpg",
+    "static/media/hamburger.af2a0b7e.svg": "/home-chef/static/media/hamburger.af2a0b7e.svg",
+    "static/media/home_chef_logo.cbaa4ec7.svg": "/home-chef/static/media/home_chef_logo.cbaa4ec7.svg",
+    "static/media/item_01-800x800.87592aec.jpg": "/home-chef/static/media/item_01-800x800.87592aec.jpg",
+    "static/media/item_02-480x480.f0880960.jpg": "/home-chef/static/media/item_02-480x480.f0880960.jpg",
+    "static/media/not_fount_image.c8301e2a.svg": "/home-chef/static/media/not_fount_image.c8301e2a.svg",
+    "static/media/order_success.988daed5.svg": "/home-chef/static/media/order_success.988daed5.svg",
+    "static/media/Popular_food.css": "/home-chef/static/media/pexels-engin-akyurt-3219483.0df3b7c6.jpg",
+    "static/media/pizza.54ebe3e1.svg": "/home-chef/static/media/pizza.54ebe3e1.svg",
+    "static/media/pngfind.com-plate-png-546398.672deebe.png": "/home-chef/static/media/pngfind.com-plate-png-546398.672deebe.png",
+    "static/media/search.a4fa9b6f.svg": "/home-chef/static/media/search.a4fa9b6f.svg",
+    "static/media/undraw_blank_canvas_3rbb.632dbda6.svg": "/home-chef/static/media/undraw_blank_canvas_3rbb.632dbda6.svg",
+    "static/media/undraw_empty_cart_co35.498b68fd.svg": "/home-chef/static/media/undraw_empty_cart_co35.498b68fd.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.26449b66.js",
+    "static/css/2.f0e2420d.chunk.css",
+    "static/js/2.8648e811.chunk.js",
+    "static/css/main.77de8dc7.chunk.css",
+    "static/js/main.971f0f67.chunk.js"
+  ]
+}
