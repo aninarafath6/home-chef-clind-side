@@ -1,23 +1,23 @@
 import React, { useEffect, useState } from "react";
-import './Popular_food.css'
+import './menu.css'
 import './mobile.css'
 import axios from 'axios'
-import { Redirect } from "react-router-dom";
+import { Link, Redirect,useParams} from "react-router-dom";
 
-
+import image from './undraw_blank_canvas_3rbb.svg'
 
 export default function Popular_food(props){
-
+const paramas = useParams();
     let item_div = document.getElementsByClassName('.pf_card');
-console.log(item_div);
+console.log(paramas.id);
 
 
 const [items,setItems] = useState([])
 const [isLogged,setIsLogged]=useState(true);
  const [remount, setRemount] = useState(0);
   useEffect(()=>{
-    axios.get('user/get-home-page-items').then(response=>{
-      setItems(response.data.item);
+    axios.get('user/menu'+paramas.id).then(response=>{
+      setItems(response.data.data);
     })
   },[])
   
@@ -45,9 +45,16 @@ const [isLogged,setIsLogged]=useState(true);
           <Redirect to="/login" />
         ) : (
           <>
-            <div className="popular_food_section">
+            {
+                items.length === 0? (<> 
+                <div className="mnullMenu">
+                    <img src={image} alt="menu is null"/>
+                    <Link  className="backToHomeLink" to="/"><i class="fas fa-arrow-left"></i> Back to home</Link>
+                </div>
+                </>):(
+                    <div className="popular_food_section">
               <div className="pf_label">
-                <h3>Popular Foods</h3>
+                <h3>Menu</h3>
               </div>
               <div className="pf_card_wrapper">
                 {items.map((item, key) => {
@@ -62,6 +69,7 @@ const [isLogged,setIsLogged]=useState(true);
                           }
                           alt=""
                         />
+                       
                       </div>
                       <div className="info_section_pf">
                         <div className="starts">
@@ -96,12 +104,9 @@ const [isLogged,setIsLogged]=useState(true);
                 })}
               </div>
             </div>
-            <div className="ads_back">
-              <div className="ads">
-                <h1>Express Home Delivery</h1>
-                <p></p>
-              </div>
-            </div>
+          
+                )
+            }
           </>
         )}
       </>

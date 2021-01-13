@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Redirect, Link } from "react-router-dom";
 import GoogleLogin from "react-google-login";
-import "./Login.css";
+import "./login.css";
 import formData from "form-data";
 import axios from "axios";
 import google_icon from "./assets/search.svg";
@@ -72,6 +72,7 @@ const Add_vendor = () => {
       notify("!! pleas enter email or phone number with (country code)");
     } else {
       setPhone(inputRef.current.value);
+      console.log(inputRef.current.value);
       axios
         .post("user/login", { input: inputRef.current.value })
         .then((response) => {

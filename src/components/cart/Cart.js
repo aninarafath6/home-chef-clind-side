@@ -1,5 +1,6 @@
 import React,{useEffect,useRef,useState} from 'react'
 import './cart.css'
+import './mobile.css'
 import test_image from "./item_01-800x800.jpg";
 import axios from 'axios'
 import { Link, Redirect,useHistory } from 'react-router-dom';
@@ -145,7 +146,7 @@ export default function Cart() {
                             <div className="cart_item_img">
                               <img
                                 src={
-                                  "http://localhost:3008/vendor_food_image/" +
+                                  "http://142.93.209.150:3000/vendor_food_image/" +
                                   cart_item.food_item._id +
                                   ".jpg"
                                 }

@@ -45,7 +45,7 @@ logged === false?(
                       <div className="orders_img_section">
                         <img
                           src={
-                            "http://localhost:3008/vendor_food_image/" +
+                            "http://142.93.209.150:3000/vendor_food_image/" +
                             item.order._id +
                             ".jpg"
                           }
@@ -58,9 +58,7 @@ logged === false?(
                       <div className="name">
                         <h4>{item.order.item_name}</h4>
                         <p>Category : {item.order.category}</p>
-                        <p>Vendor : {item.order.vendor_name}</p>
-                        <p>Quantity : {item.quantity}</p>
-                      </div>
+                        <p>Vendor : {item.order.vendor_name}</p></div>
                     </div>
                     <div className="price_section">
                       <p>₹{item.order.itemPrice}</p>

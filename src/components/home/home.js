@@ -20,14 +20,14 @@ props.data(e)
           <div className="hero_backround">
             <div className="info_section">
               <h1>
-                Enjoy Our
+                Enjoy With
                 <br />
-                <span> Delicious Food</span>
+                <span>Delicious Food</span>
               </h1>
-              <p>
+              {/* <p>
                 The perfect place to enjoy fine food withexellent <br /> service
                 in comfortable sarroundings.{" "}
-              </p>
+              </p> */}
              
             </div>
             <div className="img_section">

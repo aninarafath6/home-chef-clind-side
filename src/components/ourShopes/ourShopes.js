@@ -1,8 +1,7 @@
 import React,{useEffect,useState} from 'react';
-import './Cafes&Restaurants.css';
+import './ourShopes.css';
 import './mobile.css'
-import test_image from './food-3309418_1920.jpg';
-import {Link,useHistory} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import axios from 'axios';
 
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
@@ -10,13 +9,10 @@ import { Carousel } from "react-responsive-carousel";
 
 export default function Vendor() {
 
- const routeHistory =useHistory();
- const onHandileMenus =(vendor_id)=>{
-routeHistory.push('/menus/'+vendor_id)
- }
+ 
     const [vendors,setVendors]= useState([]);
    useEffect(()=>{
-       axios.get('user/top-shope').then((response)=>{
+       axios.get('user/our-shope').then((response)=>{
            setVendors(response.data.data);
 
        })
@@ -26,7 +22,7 @@ routeHistory.push('/menus/'+vendor_id)
         {/* <Cafes_Restaurants/> */}
         <div className="cafe_section">
           <div className="cafe_label">
-            <h3>Top Restaurants</h3>
+            <h3>Our Shopes</h3>
           </div>
            <div className="vendor_cards"></div>
             {vendors.map((vendor, key) => {
@@ -69,7 +65,7 @@ routeHistory.push('/menus/'+vendor_id)
                       <div className="IWrapper">
                         <Link>
                           <div className="C">
-                            <div onClick={()=>onHandileMenus(vendor._id)} className="edit_circle">
+                            <div className="edit_circle">
                               <i class="fas fa-arrow-right"></i>
                             </div>
                           </div>

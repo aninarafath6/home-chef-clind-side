@@ -22,9 +22,11 @@ justify-content: space-between;
     display:none;
    
 }
-.logo{
-    width: 8rem;
-  
+.logo_section h3{
+    color: #F8C628;
+}
+.logo_section h3 span{
+    color: #ffffff;
 }
 nav ul{
         display: flex;

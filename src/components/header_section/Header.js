@@ -10,7 +10,7 @@ const Header = (props) => {
   const fixedRef = useRef();
   const  [cart_count,set_Cart_count] = useState(0);
   const  [count,setCount] = useState(0);
-  const [logged, setLogged] = useState();
+  const [logged, setLogged] = useState(false);
   useEffect(()=>{
     let config = {};
 
@@ -18,7 +18,7 @@ const Header = (props) => {
     if (token !== null) {
       config.headers = { authorazation: "Bearer " + token };
     }
-       axios.get("/isLogged", config).then((response) => {
+       axios.get("isLogged", config).then((response) => {
          setLogged(response.data.loggin);
        });
     axios.get("user/cart-count",config).then((response)=>{
@@ -43,9 +43,9 @@ const onOpenMenu =()=>{
     return (
       <div className="header_container" ref={fixedRef}>
         <div className="header_section">
-          <div className="logo_section">
-            <img className="logo" src={home_chef_logo} alt="" />
-          </div>
+        <div class="logo_section">
+  <h3 >HOME <span>CHEF</span></h3>
+</div>
           <nav>
             <ul ref={menuRef}>
               <li>
@@ -53,35 +53,48 @@ const onOpenMenu =()=>{
                   Home
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link to="/" className="NavLink">
                   About us
                 </Link>
-              </li>
+              </li> */}
               <li>
-                <Link to="/" className="NavLink">
+                <Link to="/our-shopes" className="NavLink">
                   Our Shoppes
                 </Link>
               </li>
-              <li>
-                <Link to="/" className="NavLink">
-                  Contact us
-                </Link>
-              </li>
+              
               <li>
                 {logged ? (
+                 <>
                   <Link to="/orders" className="NavLink">
                     Orders
                   </Link>
+                 
+                 </>
                 ) : (
                   <Link to="/signup" className="NavLink">
                     Sign Up
                   </Link>
                 )}
               </li>
-            </ul>
-          </nav>
-          {logged ? (
+              <li>
+                {
+              logged ? (
+            <div className="cart">
+              <Link onClick={onLogout} className="NavLink">
+            Logout
+          </Link>
+            </div>
+          ) : (
+            <Link to="/login" className="NavLink">
+            Login
+          </Link>
+          )}
+              </li>
+              
+              <li>
+              {logged ? (
             <div className="cart">
               <Link to="/cart">
                 <i class="fas fa-shopping-basket"></i>
@@ -90,20 +103,14 @@ const onOpenMenu =()=>{
             </div>
           ) : (
             <div className="cart">
-              <Link to="/login ">
-                <i class="fas fa-sign-in-alt"></i>
-              </Link>
+            
             </div>
           )}
-          {logged ? (
-            <div className="cart">
-              <Link onClick={onLogout}>
-                <i class="fas fa-sign-out-alt"></i>
-              </Link>
-            </div>
-          ) : (
-            <div className="no"></div>
-          )}
+        
+              </li>
+            </ul>
+          </nav>
+          
 
           <div onClick={onOpenMenu} className="hambargerSection">
             <img className="hamburger" src={hamburger} alt="" />
