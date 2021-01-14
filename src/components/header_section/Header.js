@@ -26,6 +26,15 @@ const Header = (props) => {
       console.log(response);
     })
   },[props.data])
+  const closeMenu = ()=>{
+    const menus = document.querySelectorAll('nav ul li');
+
+    menuRef.current.classList.toggle('open');
+    fixedRef.current.classList.toggle("fix_header");
+    menus.forEach(menu=>{
+      menu.classList.toggle("fade");
+    })
+  }
 const onOpenMenu =()=>{
   const menus = document.querySelectorAll('nav ul li');
 
@@ -49,7 +58,7 @@ const onOpenMenu =()=>{
           <nav>
             <ul ref={menuRef}>
               <li>
-                <Link to="/" className="NavLink">
+                <Link onClick={closeMenu} to="/" className="NavLink">
                   Home
                 </Link>
               </li>
@@ -59,7 +68,7 @@ const onOpenMenu =()=>{
                 </Link>
               </li> */}
               <li>
-                <Link to="/our-shopes" className="NavLink">
+                <Link onClick={closeMenu} to="/our-shopes" className="NavLink">
                   Our Shoppes
                 </Link>
               </li>
@@ -67,13 +76,13 @@ const onOpenMenu =()=>{
               <li>
                 {logged ? (
                  <>
-                  <Link to="/orders" className="NavLink">
+                  <Link onClick={closeMenu}  to="/orders" className="NavLink">
                     Orders
                   </Link>
                  
                  </>
                 ) : (
-                  <Link to="/signup" className="NavLink">
+                  <Link onClick={closeMenu} to="/signup" className="NavLink">
                     Sign Up
                   </Link>
                 )}
@@ -82,12 +91,12 @@ const onOpenMenu =()=>{
                 {
               logged ? (
             <div className="cart">
-              <Link onClick={onLogout} className="NavLink">
+              <Link onClick={closeMenu} onClick={onLogout} className="NavLink">
             Logout
           </Link>
             </div>
           ) : (
-            <Link to="/login" className="NavLink">
+            <Link onClick={closeMenu} to="/login" className="NavLink">
             Login
           </Link>
           )}
