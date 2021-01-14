@@ -70,7 +70,7 @@ const [isLogged,setIsLogged]=useState(true);
                       <div className="img_section_pf">
                         <img
                           src={
-                            "http://localhost:3005/vendor_food_image/" +
+                            "http://142.93.209.150:8080/vendor_food_image/" +
                             item._id +
                             ".jpg"
                           }

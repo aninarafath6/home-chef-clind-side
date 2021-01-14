@@ -37,7 +37,7 @@ routeHistory.push('/menus/'+vendor_id)
                       <div className="vendor_card_img_content">
                         <img
                           src={
-                            "http://localhost:3005/vendor_images/" +
+                            "http://142.93.209.150:8080/vendor_images/" +
                             vendor._id +
                             ".jpg"
                           }

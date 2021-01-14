@@ -45,7 +45,7 @@ logged === false?(
                       <div className="orders_img_section">
                         <img
                           src={
-                            "http://142.93.209.150:3000/vendor_food_image/" +
+                            "http://142.93.209.150:8080/vendor_food_image/" +
                             item.order._id +
                             ".jpg"
                           }
