@@ -3,7 +3,7 @@ import './Popular_food.css'
 import './mobile.css'
 import axios from 'axios'
 import { Redirect } from "react-router-dom";
-
+import swal from 'sweetalert';
 
 
 export default function Popular_food(props){
@@ -33,6 +33,12 @@ const [isLogged,setIsLogged]=useState(true);
       }
       const data = {id:item_id};
       axios.post("user/add-to-cart", data, config).then(response => {
+        swal({
+          title: "Good job!",
+          text: "Item added to cart!",
+          icon: "success",
+
+        });
         setIsLogged(response.data.loggin);
            setRemount(remount *2 +3-5);
            props.data(remount);

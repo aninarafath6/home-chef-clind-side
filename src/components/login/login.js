@@ -2,13 +2,10 @@ import React, { useState, useRef, useEffect } from "react";
 import { Redirect, Link } from "react-router-dom";
 import GoogleLogin from "react-google-login";
 import "./login.css";
-import formData from "form-data";
 import axios from "axios";
 import google_icon from "./assets/search.svg";
 import New_page from "./assets/otp_or_password/otp_password";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import { css } from "glamor";
+import swal from 'sweetalert';
 
 const Add_vendor = () => {
   const inputRef = useRef();
@@ -39,13 +36,22 @@ const Add_vendor = () => {
       if (response.data.auth) {
         if (response.data.user_token !== undefined) {
           localStorage.setItem("user_token", response.data.user_token);
-          notify("Hi, welcome to home chef");
+          swal({
+            title:"Login successfully",
+            text: "Hi,welcome to home chef!",
+            icon: "success",
+          });
           setCount(count + 1);
           setLogin(true);
         }
 
       } else {
-        notify("!!login failed");
+        swal({
+          title: "Login failed!",
+          text: "You clicked the button!",
+          icon: "error",
+        });
+       
       }
     });
   };
@@ -66,10 +72,18 @@ const Add_vendor = () => {
     let email = inputRef.current.value;
     let mail_format = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})|(\+[1-9]{1}[0-9]{3,14})+$/;
     if (email === "") {
-      notify("!! pleas fill the colum");
+      swal({
+        title: "Please fill",
+        text: "Please enter email or password!",
+        icon: "error",
+      });
     } else if (!mail_format.test(email)) {
       setTo_next_page(false);
-      notify("!! pleas enter email or phone number with (country code)");
+      swal({
+        title: "please enter valid info",
+        text: "pleas enter email or phone number with (country code)",
+        icon: "error",
+      });
     } else {
       setPhone(inputRef.current.value);
       console.log(inputRef.current.value);
@@ -77,28 +91,22 @@ const Add_vendor = () => {
         .post("user/login", { input: inputRef.current.value })
         .then((response) => {
           if (response.data.user === false) {
-            notify("!! not user found");
+            swal({
+              title: "User not found",
+              text: "pleas check your email or phone number ",
+              icon: "error",
+            });
           }
 
           setTo_next_page(true);
         });
     }
   };
-  const notify = (data,type) => {
-    toast.warn(data, {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
-  };
+
 
   return (
     <>
-      <ToastContainer />
+    
       {to_next_page ? (
         <>
           <New_page email_or_pass={phone} data={inputRef.current.value} />

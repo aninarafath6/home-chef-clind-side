@@ -3,6 +3,7 @@ import './menu.css'
 import './mobile.css'
 import axios from 'axios'
 import { Link, Redirect,useParams} from "react-router-dom";
+import swal from 'sweetalert';
 
 import image from './undraw_blank_canvas_3rbb.svg'
 
@@ -34,6 +35,12 @@ const [isLogged,setIsLogged]=useState(true);
       const data = {id:item_id};
       axios.post("user/add-to-cart", data, config).then(response => {
         setIsLogged(response.data.loggin);
+        swal({
+          title: "Good job!",
+          text: "Item added to cart!",
+          icon: "success",
+
+        });
            setRemount(remount *2 +3-5);
            props.data(remount);
 

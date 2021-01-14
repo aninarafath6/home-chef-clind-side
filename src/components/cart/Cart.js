@@ -8,6 +8,8 @@ import { Link, Redirect,useHistory } from 'react-router-dom';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+
+
 export default function Cart() {
   let routeHistory =  useHistory();
   const inputRef = useRef();
