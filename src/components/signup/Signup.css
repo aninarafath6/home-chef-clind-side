@@ -1,6 +1,6 @@
 .add_vendor_container {
   width: 100%;
-  height: calc(100vh - 5rem);
+  height: calc(100vh - 4rem);
   background: url("assets/add_vendor_backround.jpg");
   background-position: center;
   background-repeat: no-repeat;
