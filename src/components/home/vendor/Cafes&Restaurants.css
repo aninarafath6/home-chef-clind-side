@@ -26,17 +26,38 @@
     align-items: center;
 justify-content: center;
 position: relative;
+overflow: hidden;
 }
 .cafe_label h3::before{
     content: "";
-    width: 250px;
+    width: 300px;
     height: 3px;
     position: absolute;
     bottom: 0;
     left: 0;
     background-color: #f8c628;
-  
+  /* animation: anim 1s infinite;
+  transition: 3s ease; */
 }
+.cafe_label h3::after{
+    content: "";
+    width: 50px;
+    height: 3px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: #f1f1f1;
+  animation: anim2 3s infinite;
+  transition: 3s ease;
+}
+@keyframes anim2{
+    from{
+      transform: translateX(-500px);
+    }
+    to{
+        transform: translateX(100px);
+    }
+  }
 
 * {
     margin    : 0;

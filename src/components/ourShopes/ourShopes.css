@@ -19,24 +19,53 @@
     color          : #282932;
     font-size      : 22px;
     padding-bottom: 1rem;
-}
-.cafe_label h3{
+}.cafe_label h3{
     display: inline-block;
     display: flex;
     align-items: center;
 justify-content: center;
 position: relative;
+overflow: hidden;
 }
 .cafe_label h3::before{
     content: "";
-    width: 144px;
+    width: 300px;
     height: 3px;
     position: absolute;
     bottom: 0;
     left: 0;
     background-color: #f8c628;
-  
+  /* animation: anim 1s infinite;
+  transition: 3s ease; */
 }
+.cafe_label h3::after{
+    content: "";
+    width: 50px;
+    height: 3px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: #282932;
+  animation: anim2 3s infinite;
+  transition: 3s ease;
+}
+@keyframes anim2{
+    0%{
+      transform: translateX(-500px);
+      margin: .5px;
+      width: 10px;
+    }
+    25%{
+        width: 200px;
+    }
+    50%{
+        width: 75px;
+    }
+    100%{
+        transform: translateX(100px);
+        width: 10px;
+    }
+  }
 
 * {
     margin    : 0;
