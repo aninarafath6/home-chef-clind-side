@@ -1,11 +1,12 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Redirect } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import "./Signup.css";
-import formData from "form-data";
 import axios from "axios";
 import NumberFormat from 'react-number-format';
+import swal from 'sweetalert';
 
 const Add_vendor = () => {
+  const routeHistory = useHistory();
 const errrLAbelRef =useRef();
 const otpLebalRef = useRef();
   const [isLogged, setLogged] = useState();
@@ -14,7 +15,6 @@ const otpLebalRef = useRef();
   const [Email,setEmail] = useState('');
   const [passWord,setPassword] = useState('');
   const [phone,setPhone] = useState();
-  const [otp,setOtp] = useState(0);
   const [err_label_state, setErr_label_state] = useState("");
   const [signup, setSignup] = useState();
 
@@ -36,6 +36,11 @@ const otpLebalRef = useRef();
     e.preventDefault()
 if (Name=== " " || Email === " " || passWord=== " " || phone ===" ") {
   setErr_label_state("pleas fill all inputs")
+  swal({
+    title:"Please fill all inputs",
+    text: "check all inputs and fill valid info",
+    icon: "error",
+  });
 }else{
   const user_data ={
     name:Name,
@@ -49,12 +54,20 @@ if (Name=== " " || Email === " " || passWord=== " " || phone ===" ") {
       localStorage.setItem("user_token", res.data.user_token);
  }
  if(res.data.user_already){
-   return alert("email id or password is already exist");
+  swal({
+    title:"Email is already exist",
+    text: "Please try with another email",
+    icon: "warning",
+  });
  }
  if(res.data.user_signup){
       
-         alert(" !!! successful welcome to home chef");
-         setSignup(true)
+  swal({
+    title:"Login successfully",
+    text: "Hi,welcome to home chef!",
+    icon: "success",
+  });
+  routeHistory.push('/')
 
         
   
@@ -65,12 +78,8 @@ if (Name=== " " || Email === " " || passWord=== " " || phone ===" ") {
   }
 
   return (
-    <>
-      {signup ? (
-        <Redirect to="/" />
-      ) : (
-        <>
-          <div className="add_vendor_container">
+    <div className="add_vendor_container">
+      <div id="map"></div>
             <div className="add_vendor_ovarly">
               <div className="add_vendor_section">
                 <form onSubmit={submitHadiler} className="add_vendor_form">
@@ -149,10 +158,6 @@ if (Name=== " " || Email === " " || passWord=== " " || phone ===" ") {
               </div>
             </div>
           </div>
-        </>
-      )}
-      );
-    </>
   );
 };
 
