@@ -107,7 +107,7 @@ const Place_order = (props) => {
     loadScript().then((response) => {
       console.log("hio");
       var options = {
-        key:"rzp_test_rJNa9VOfLPAttk",  // Enter the Key ID generated from the Dashboard
+        key:"rzp_test_AGrgXxsDBHcnsO",  // Enter the Key ID generated from the Dashboard
         amount: order.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
         currency: "INR",
         name: "Home Chef",
