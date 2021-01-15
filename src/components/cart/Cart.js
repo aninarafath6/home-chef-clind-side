@@ -1,12 +1,12 @@
 import React,{useEffect,useRef,useState} from 'react'
 import './cart.css'
 import './mobile.css'
-import test_image from "./item_01-800x800.jpg";
 import axios from 'axios'
 import { Link, Redirect,useHistory } from 'react-router-dom';
  import empty_cart_image from './assets/undraw_empty_cart_co35.svg'
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import swal from 'sweetalert';
 
 
 
@@ -48,6 +48,8 @@ export default function Cart() {
 
     },[remount])
     console.log({cart:cart_items})
+
+    
     const onChange_Quantity =(cart_id,item_id,count)=>{
  let quantity = parseInt(document.getElementById(item_id).value);
               setRemount(remount + 1);
@@ -70,7 +72,13 @@ export default function Cart() {
           axios.post('user/change-quantity',object).then(response=>{
             console.log(response);
             if(response.data.removeItem){
-              notify('1 item is removed')
+
+              swal({
+                title: "Success!",
+                text: "1 item is removed!",
+                icon: "success",
+      
+              });
            
          setRemount(remount + 1);
             }
@@ -83,6 +91,8 @@ export default function Cart() {
                });
           })
         }
+
+
           const onInpQntyCange = (e, item_id, cart_id) => {
             let object = {
               cart_id: cart_id,
@@ -95,18 +105,7 @@ export default function Cart() {
           };
 
 
-      const notify = (data,type) => {
-    toast.warn(data, {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
-  };
-
+ 
 
   const remove_cart_item =(cart_id,item_id)=>{
     const object={
@@ -120,13 +119,29 @@ export default function Cart() {
                   config.headers = { authorazation: "Bearer " + token };
                 }
 
-    axios.post("user/remove-cart-item",object,config).then(response=>{
-       if (response.data.removeItem) {
-         notify("1 item is removed");
-
-         setRemount(remount + 1);
-       }
+    
+    swal({
+      title: "Are you sure?",
+      text: "Are you sure remove this item",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
     })
+    .then((willDelete) => {
+      if (willDelete) {
+        
+        swal("Poof! 1 item is deleted!", {
+          icon: "success",
+        });
+        axios.post("user/remove-cart-item",object,config).then(response=>{
+          if (response.data.removeItem) {
+            setRemount(remount + 1);
+          }
+       })
+      } else {
+        swal("Your cart items is safe!");
+      }
+    });
   }
   console.log(amount);
     return (

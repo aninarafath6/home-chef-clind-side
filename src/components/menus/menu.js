@@ -36,7 +36,7 @@ const [isLogged,setIsLogged]=useState(true);
       axios.post("user/add-to-cart", data, config).then(response => {
         setIsLogged(response.data.loggin);
         swal({
-          title: "Good job!",
+          title: "Success!",
           text: "Item added to cart!",
           icon: "success",
 

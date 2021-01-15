@@ -107,7 +107,11 @@ const Place_order = (props) => {
     loadScript().then((response) => {
       console.log("hio");
       var options = {
-        key: "rzp_test_jjF83IBmgi1ZBK", // Enter the Key ID generated from the Dashboard
+        
+        
+        
+
+        key:"rzp_test_QnTjqckFkHUAUD", // Enter the Key ID generated from the Dashboard
         amount: order.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
         currency: "INR",
         name: "Home Chef",
@@ -116,8 +120,8 @@ const Place_order = (props) => {
         order_id: order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
         handler: function (response) {
           swal({
-            title: "Payment Success!",
-            text: "Item added to cart!",
+            title: "success!",
+            text: "Payment successfully !",
             icon: "success",
   
           });
@@ -145,17 +149,11 @@ const Place_order = (props) => {
         });
         swal({
           title: response.error.description,
-          text: "please tray agin!",
+          text: "",
           icon: "warning",
 
         });
-        notify(response.error.description); // alert(response.error.code);
-        // alert(response.error.description);
-        // alert(response.error.source);
-        // alert(response.error.step);
-        // alert(response.error.reason);
-        // alert(response.error.metadata.order_id);
-        // alert(response.error.metadata.payment_id);
+       
       });
       rzp1.open();
     });
@@ -200,7 +198,7 @@ const Place_order = (props) => {
                   <div className="Place_order container">
                     <form
                       ref={formRef}
-                      action=""
+                   
                       method="post"
                       onSubmit={onOrderFormSubmitHandiler}
                       className="addressForm "
