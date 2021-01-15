@@ -92,7 +92,7 @@ export default function Cart() {
             if(document.getElementById(item_id).value !== "1" && count !== "-1"){
               let quantity = (document.getElementById(item_id).value =parseInt(document.getElementById(item_id).value) + count);
                }
-            if(document.getElementById(item_id).value !== 1 && count !== -1){
+            if(document.getElementById(item_id).value !== 1 && count  !== -1){
            let quantity = (document.getElementById(item_id).value =parseInt(document.getElementById(item_id).value) + count);
             }
           }
