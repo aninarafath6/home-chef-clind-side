@@ -33,12 +33,14 @@ const [isLogged,setIsLogged]=useState(true);
       }
       const data = {id:item_id};
       axios.post("user/add-to-cart", data, config).then(response => {
+       if(response.data.status){
         swal({
-          title: "Good job!",
+          title: "Success!",
           text: "Item added to cart!",
           icon: "success",
 
         });
+       }
         setIsLogged(response.data.loggin);
            setRemount(remount *2 +3-5);
            props.data(remount);
