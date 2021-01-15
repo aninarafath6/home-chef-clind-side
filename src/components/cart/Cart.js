@@ -39,7 +39,8 @@ export default function Cart() {
         console.log(response);
 
        });
-       axios.get('user/get-total',config).then(response=>{
+       axios.get("user/get-total",config).then(response=>{
+        
          setAmount(response.data.total)
 
        })
@@ -127,6 +128,7 @@ export default function Cart() {
        }
     })
   }
+  console.log(amount);
     return (
       <>
         {cart_items[0] === undefined ? (
@@ -148,7 +150,7 @@ export default function Cart() {
                             <div className="cart_item_img">
                               <img
                                 src={
-                                  "http://localhost:3005/vendor_food_image/" +
+                                  "http://142.93.209.150:8080/vendor_food_image/" +
                                   cart_item.food_item._id +
                                   ".jpg"
                                 }
@@ -234,6 +236,7 @@ export default function Cart() {
                     </div>
                     <div className="price_details">
                       <div className="price_details_card">
+                 
                         {amount.total !== undefined ? (
                           <>
                             {" "}
@@ -258,12 +261,15 @@ export default function Cart() {
                                 <p>You will save ₹3,800 on this order</p>
                               </div>
                               <div className="price_container Place_order_btn">
+                                
                                 <Link id="place_btn" to="/placeOrder">PLACE ORDER</Link>
                               </div>
                             </div>
                           </>
                         ) : (
-                          <> </>
+                          <>
+                          loading...
+                             </>
                         )}
                       </div>
                     </div>

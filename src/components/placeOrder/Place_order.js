@@ -5,6 +5,8 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import RazorPay from "./fuctions/razorpay";
+import swal from 'sweetalert';
+
 
 const Place_order = (props) => {
   const notify = (data, type) => {
@@ -105,7 +107,7 @@ const Place_order = (props) => {
     loadScript().then((response) => {
       console.log("hio");
       var options = {
-        key: "rzp_test_yOhCucvK2y7N03", // Enter the Key ID generated from the Dashboard
+        key: "rzp_test_BSFghXM3xwNBuz", // Enter the Key ID generated from the Dashboard
         amount: order.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
         currency: "INR",
         name: "Home Chef",
@@ -113,7 +115,12 @@ const Place_order = (props) => {
         image: "https://example.com/your_logo",
         order_id: order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
         handler: function (response) {
-          notify("Payment success!!");
+          swal({
+            title: "Payment Success!",
+            text: "Item added to cart!",
+            icon: "success",
+  
+          });
           razorPay_verifyPayment(response, order);
         },
         prefill: {
@@ -130,7 +137,18 @@ const Place_order = (props) => {
       };
       var rzp1 = new window.Razorpay(options);
       rzp1.on("payment.failed", function (response) {
-        notify("Payment Failed!!"); // alert(response.error.code);
+        swal({
+          title: "Payment failed!",
+          text: "please tray agin!",
+          icon: "error",
+
+        });
+        swal({
+          title: response.error.description,
+          text: "please tray agin!",
+          icon: "warning",
+
+        });
         notify(response.error.description); // alert(response.error.code);
         // alert(response.error.description);
         // alert(response.error.source);
