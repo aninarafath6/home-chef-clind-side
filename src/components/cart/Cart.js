@@ -46,7 +46,7 @@ export default function Cart() {
        })
 
 
-    },[remount])
+    })
     console.log({cart:cart_items})
 
     
@@ -72,6 +72,7 @@ export default function Cart() {
           axios.post('user/change-quantity',object).then(response=>{
             console.log(response);
             if(response.data.removeItem){
+              setRemount(remount + 1);
 
               swal({
                 title: "Success!",
@@ -81,14 +82,26 @@ export default function Cart() {
               });
            
          setRemount(remount + 1);
+         setRemount(remount + 5);
+         setRemount(remount + 8);
             }
+            setRemount(remount + 1);
+            setRemount(remount + 5);
+            setRemount(remount + 8);
+            if (document.getElementById(item_id).value  !== null){
+            if(document.getElementById(item_id).value !== "1" && count !== "-1"){
+              let quantity = (document.getElementById(item_id).value =parseInt(document.getElementById(item_id).value) + count);
+               }
+            if(document.getElementById(item_id).value !== 1 && count !== -1){
+           let quantity = (document.getElementById(item_id).value =parseInt(document.getElementById(item_id).value) + count);
+            }
+          }
+            setRemount(count + 2);
+              axios.get("user/get-total", config).then((response) => {
+                setAmount(response.data.total);
+              });
            
-                   let quantity = (document.getElementById(item_id).value =
-                     parseInt(document.getElementById(item_id).value) + count);
-                     setRemount(count + 2);
-               axios.get("user/get-total", config).then((response) => {
-                 setAmount(response.data.total);
-               });
+                  
           })
         }
 
